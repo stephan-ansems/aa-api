@@ -11,3 +11,6 @@ info:
     to use for your JSON requests.
   version: 2.0.1
   title: Active Ants Shop API
+paths:
+  '/v2/rma/add'
+  
