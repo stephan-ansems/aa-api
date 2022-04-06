@@ -12,5 +12,11 @@ info:
   version: 2.0.1
   title: Active Ants Shop API
 paths:
-  '/v2/rma/add'
+  '/v2/rma/add':
+    post:
+      tags:
+        - rma
+      summary: Creates a new RMA
+      description: Creates a new return merchandise authorisation (RMA)
+      operationId: addRma
   
