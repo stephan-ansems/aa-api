@@ -20,12 +20,18 @@ paths:
       description: Creates a new return merchandise authorisation (RMA)
       operationId: addRma
       responses:
-        '200': OK
+        200: 
+          description: OK
+        401:
+          description: Invalid RMA
       requestBody:
         content:
           application/json:
             schema:
-              allOf:
-                - description: My Pet
-                  title: Pettie
-                - $ref: '#/components/schemas/Pet'
+              $ref: '#/components/schemas/Rma'
+components:
+  schemas:
+   Rma:
+      type: object
+      required:
+        
