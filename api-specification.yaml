@@ -1,11 +1,10 @@
-title: Sample Pet Store App
-description: This is a sample server for a pet store.
-termsOfService: http://example.com/terms/
-contact:
-  name: API Support
-  url: http://www.example.com/support
-  email: support@example.com
-license:
-  name: Apache 2.0
-  url: https://www.apache.org/licenses/LICENSE-2.0.html
-version: 1.0.1
+openapi: 3.0.0
+servers:
+  - url: https://shopapi.activeants.nl/
+    description: Default server
+info:
+  The Active Ants Shop API was made to replace the old Novulo Webservice. Much of the old
+  functionality has been kept, but there have been quite a few changes. One of them is the conversion
+  to JSON. This document will cover all different calls you can perform in as much detail as possible. For
+  each operation we will define which fields are needed to use the API, and provide you with the URL
+  to use for your JSON requests.
