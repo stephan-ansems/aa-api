@@ -1,10 +1,13 @@
 openapi: 3.0.0
 servers:
-  - url: https://shopapi.activeants.nl/
+  - url: https://shopapi.activeants.nl
     description: Default server
 info:
-  The Active Ants Shop API was made to replace the old Novulo Webservice. Much of the old
-  functionality has been kept, but there have been quite a few changes. One of them is the conversion
-  to JSON. This document will cover all different calls you can perform in as much detail as possible. For
-  each operation we will define which fields are needed to use the API, and provide you with the URL
-  to use for your JSON requests.
+  description: |
+    The Active Ants Shop API was made to replace the old Novulo Webservice. Much of the old
+    functionality has been kept, but there have been quite a few changes. One of them is the conversion
+    to JSON. This document will cover all different calls you can perform in as much detail as possible. For
+    each operation we will define which fields are needed to use the API, and provide you with the URL
+    to use for your JSON requests.
+  version: 2.0.1
+  title: Active Ants Shop API
