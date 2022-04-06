@@ -48,16 +48,18 @@ components:
           minItems: 1
           maxItems: 99
           items:
-            shippingItemId:
-              description: Reference to the line-item of the shipment the particular product was returned on. This is used to look up the SKU among other things.
-              type: string
-              example: 4358838211
-            quantity:
-              description: The number of the particular item to return, this must be 1 or higher
-              type: integer
-              minimum: 1
-            reasonId:
-              description: The id of the reason for returning this item. 
-              type: integer
+            type: object
+            properties:
+              shippingItemId:
+                description: Reference to the line-item of the shipment the particular product was returned on. This is used to look up the SKU among other things.
+                type: string
+                example: 4358838211
+              quantity:
+                description: The number of the particular item to return, this must be 1 or higher
+                type: integer
+                minimum: 1
+              reasonId:
+                description: The id of the reason for returning this item. 
+                type: integer
 
 
