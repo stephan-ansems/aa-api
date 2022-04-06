@@ -19,4 +19,13 @@ paths:
       summary: Creates a new RMA
       description: Creates a new return merchandise authorisation (RMA)
       operationId: addRma
-  
+      responses:
+        '200': OK
+      requestBody:
+        content:
+          application/json:
+            schema:
+              allOf:
+                - description: My Pet
+                  title: Pettie
+                - $ref: '#/components/schemas/Pet'
