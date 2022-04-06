@@ -47,7 +47,7 @@ components:
           type: array
           minItems: 1
           maxItems: 99
-          properties:
+          items:
             shippingItemId:
               description: Reference to the line-item of the shipment the particular product was returned on. This is used to look up the SKU among other things.
               type: string
