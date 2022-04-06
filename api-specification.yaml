@@ -37,12 +37,10 @@ components:
         shippingId:
           description: Reference to the shipment that contained the products when they were shipped to the customers address
           type: string
-          required: false
           example: 1899222311
         remark:
           description: A free text remark to add to the return merchandise authorisation.
           type: string
-          required: false
           example: Thanks for shipping out so fast! Unfortunately the items do not fit me.
         items:
           description: An array or items to be returned, each item may originate from a different shipment
@@ -53,16 +51,13 @@ components:
             shippingItemId:
               description: Reference to the line-item of the shipment the particular product was returned on. This is used to look up the SKU among other things.
               type: string
-              required: true
               example: 4358838211
             quantity:
               description: The number of the particular item to return, this must be 1 or higher
               type: int64
-              required: true
               minimum: 1
             reasonId:
               description: The id of the reason for returning this item. 
               type: int64
-              required: true
 
 
