@@ -54,10 +54,10 @@ components:
               example: 4358838211
             quantity:
               description: The number of the particular item to return, this must be 1 or higher
-              type: int64
+              type: integer
               minimum: 1
             reasonId:
               description: The id of the reason for returning this item. 
-              type: int64
+              type: integer
 
 
