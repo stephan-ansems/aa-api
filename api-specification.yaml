@@ -70,6 +70,7 @@ components:
         shippingId:
           description: Reference to the shipment that contained the products when they were shipped to the customers address
           type: string
+          required: false
           example: 1899222311
         remark:
           description: A free text remark to add to the return merchandise authorisation.
