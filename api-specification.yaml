@@ -14,101 +14,10 @@ info:
 paths:
   '/v2/rma/add':
     post:
-      tags:
-        - rma
-      summary: Creates a new RMA
-      description: Creates a new return merchandise authorisation (RMA)
-      operationId: addRma
-      responses:
-        200: 
-          description: Success
-          content:
-            application/json:
-              schema: 
-                type: object
-                required:
-                  - message
-                  - messageCode
-                  - result
-                properties:
-                  message:
-                    type: string
-                    description: Static success message
-                    example: RmaCreated.
-                  messageCode:
-                    type: string
-                    example: OK
-                  result:
-                    type: string
-                    example: 182312111
-        400:
-          description: |
-            Could be one of the following errors: 
-            - "No data received, please check your data."
-            - "Shipment {ShipmentId} not found"
-            - "RMA for shipment {ShipmentId} already created"
-            - "Data received is not correct"
-          content:
-            application/json:
-              schema: 
-                type: object
-                required:
-                  - message
-                  - messageCode
-                properties:
-                  message:
-                    type: string
-                    description: Textual representation of the error
-                    example: No data received, please check your data.
-                  messageCode:
-                    type: string
-                    example: NOK
-                  result:
-                    type: object
-
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                shippingId:
-                  description: |
-                    Reference to the shipment that contained the products when they were shipped to the customers address.
-                  type: string
-                  example: 1899222311
-                remark:
-                  description: A free text remark to add to the return merchandise authorisation.
-                  type: string
-                  example: Thanks for shipping out so fast! Unfortunately the items do not fit me.
-                rmaItems:
-                  description: |
-                    An array or items to be returned, each item may originate from a different shipment.
-                  type: array
-                  minItems: 1
-                  maxItems: 99
-                  items:
-                    type: object
-                    required:
-                      - shippingItemId
-                      - quantity
-                    properties:
-                      returnReasonId:
-                        description: The id of the reason for returning this item. 
-                        type: integer
-                      shippingItemId:
-                        description: |
-                          Reference to the line-item of the shipment the particular product was returned on.
-                          This is used to look up the SKU among other things.
-                        type: string
-                        example: 4358838211
-                      quantity:
-                        description: The number of the particular item to return, this must be 1 or higher
-                        type: integer
-                        minimum: 1
+      $ref: v2/rma/POST_add.yaml
 
   '/v2/returnitem/get':
     post:
-      $ref: v2/rma/add.yaml
+      $ref: v2/returnitem/POST_get.yaml
 
 
