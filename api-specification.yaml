@@ -24,18 +24,38 @@ paths:
           description: Success
           content:
             application/json:
-              schema:
-                type: string
-                example: 1434980924
+              schema: 
+                type: object
+                required:
+                  properties:
+                    message:
+                      type: string
+                      description: Static success message
+                      example: RmaCreated.
+                    code:
+                      type: string
+                      example: OK
+                    result:
+                      type: string
+                      example: 182312111
         400:
-          description: No data received, please check your data.
+          description: |
+            Could be one of the following errors: 
+            - "No data received, please check your data."
+            - "Shipment {ShipmentId} not found"
+            - "RMA for shipment {ShipmentId} already created"
+            - "Data received is not correct"
           content:
             application/json:
               schema: 
                 type: object
+                required:
+                  - message
+                  - messageCode
                 properties:
-                  errorMessage:
+                  message:
                     type: string
+                    description: Textual representation of the error
                     example: No data received, please check your data.
                   messageCode:
                     type: string
