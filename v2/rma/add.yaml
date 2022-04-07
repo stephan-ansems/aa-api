@@ -18,13 +18,18 @@ responses:
             message:
               type: string
               description: Static success message
-              example: RmaCreated.
             messageCode:
               type: string
-              example: OK
+              description: Always 'OK' for success messages
             result:
               type: string
-              example: 182312111
+              description: contains the identifier of the RMA that was created.
+        examples:
+          "200: OK":
+            value:
+              message: Rma Created
+              messageCode: OK
+              result: 182312111
   400:
     description: Whenever an invalid request was made this message will contain a response indicating the issue.
     content:
@@ -45,19 +50,19 @@ responses:
               type: object
         examples:
           "400: No data":
-            values:
+            value:
               message: No data received, please check your data.
               messageCode: NOK
           "400: Shipment not found":
-            values:
+            value:
               message: Shipment ${shipmentId} not found.
               messageCode: NOK
           "400: Duplicate RMA for shipments":
-            values:
+            value:
               message: RMA for shipment ${shipmentId} already created.
               messageCode: NOK
           "400: Data incorrect":
-            values:
+            value:
               message: Data received is not correct.
               messageCode: NOK
           
