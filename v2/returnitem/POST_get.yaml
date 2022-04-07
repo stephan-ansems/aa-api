@@ -1,9 +1,8 @@
 tags:
-  - rma
   - returns
-summary: Fetches a return item
+summary: Fetches a return item data
 description: Creates a new return merchandise authorisation (RMA)
-operationId: addRma
+operationId: GetReturns
 responses:
   200: 
     description: Success
@@ -14,7 +13,6 @@ responses:
           required:
             - message
             - messageCode
-            - result
           properties:
             message:
               type: string
