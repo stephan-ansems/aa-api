@@ -108,6 +108,7 @@ paths:
                         minimum: 1
 
   '/v2/returnitem/get':
-    $ref: v2/rma/add.yaml
+    post:
+      $ref: v2/rma/add.yaml
 
 
