@@ -31,18 +31,17 @@ paths:
           description: No data received, please check your data.
           content:
             application/json:
-              schema: object
-              properties:
-                errorMessage:
-                  type: string
-                  example: No data received, please check your data.
-                messageCode:
-                  type: string
-                  example: NOK
-                result:
-                  type: object
-
-                
+              schema: 
+                type: object
+                properties:
+                  errorMessage:
+                    type: string
+                    example: No data received, please check your data.
+                  messageCode:
+                    type: string
+                    example: NOK
+                  result:
+                    type: object
 
       requestBody:
         content:
