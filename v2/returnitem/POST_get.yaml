@@ -95,10 +95,10 @@ responses:
               message: Found {count} return items that match your criteria.
               messageCode: OK
               result: 
-                0:
-                  id: 1
-                1:
-                  id: 2
+                - id: 1
+                  comment: Big stain on the front
+                - id: 2
+                  returnDate: 2022-03-03
            
               
   400:
