@@ -103,7 +103,7 @@ responses:
                   externalOrderNumber: DR-010045656-01
                   returnReasonId: 46
                   returnReason: Te klein
-                  type: ?
+                  type: 0
                   afterCare: GEEN
                   redeliver: false
                   porti: UPS Access Point - gratis voor klant - United Kingdom  (tot 10kg)
@@ -115,7 +115,7 @@ responses:
                   externalOrderNumber: DR-010045656-01
                   returnReasonId: 27
                   returnReason: Product moet gestoomd worden
-                  type: ?
+                  type: 0
                   afterCare: GEEN
                   porti: UPS Access Point - gratis voor klant - United Kingdom  (tot 10kg)
                   orderType:
