@@ -23,14 +23,81 @@ responses:
               type: string
               description: Always 'OK' for success messages
             result:
-              type: string
-              description: contains the identifier of the RMA that was created.
+              type: array
+              minItems: 0
+              maxItems: 1000
+              description: An array of up to 1000 return items matching the input criteria.
+              items:
+                type: object
+                required:
+                  - id
+                  - returnDate
+                  - quantity
+                  - sku
+                  - externalOrderNumber
+                  - returnReasondId
+                  - returnReason
+                  - type
+                  - porti
+                  - redeliver
+                  - orderType
+                properties:
+                  id:
+                    description: The id of the reason for returning this item. 
+                    type: string
+                  returnDate:
+                    description: The date the return was received and processed
+                    type: string
+                    format: date
+                  quantity:
+                    description: The number of the SKU's that was returned.
+                    type: integer
+                  sku:
+                    description: The SKU of the prouct that was returned
+                    type: string
+                  externalOrderNumber:
+                    description: The order id of that is associated with the original shipment of the item
+                    type: string
+                  returnReasonId:
+                    description: The id of the reason for returning this item.
+                    type: integer
+                  returnReason:
+                    description: A textual description of the return reason (for convenience)
+                    type: string
+                  type:
+                    description: The correction type associated with the return reason.
+                    type: string 
+                  afterCare:
+                    description: A textual description of the aftercare for this return.
+                    type: boolean
+                  redeliver:
+                    description: |
+                      Indicates whether or not the item should/is redelivered to the end-customer
+                      - <tt>true</tt> The item is (going to be) redelivered
+                      - <tt>false</tt> The item is not (going to be) redelivered
+                    type: boolean
+                  porti:
+                    description: A textual description of the return porti used for this item
+                    type: string
+                  orderType:
+                    description: The type of order as specified on the original order that shipped the item to the end-customer.
+                    type: string
+                  comment:
+                    description: A free text description added during the processing of the returned item.
+                    type: string
+              
         examples:
-          "200: OK":
+          "200: zero returns found":
+            description: In case the request did not result in any return information the following message will be provided.
             value:
-              message: Rma Created
+              message: No return items found for provided information.
               messageCode: OK
-              result: 182312111
+          "200: one or more resturns found":
+            value:
+              message: Found {count} return items that match your criteria.
+              messageCode: OK
+              result:
+              
   400:
     description: Whenever an invalid request was made this message will contain a response indicating the issue.
     content:
@@ -89,15 +156,15 @@ requestBody:
 
       examples:
         "by orderId":
-          description: Fetches all returns for a order 'DR-010045656-01', regardless of when these occurred.
+          description: Fetches up to a 1000 returns for a order 'DR-010045656-01', regardless of when these occurred.
           value:
             externalOrderNumber: DR-010045656-01 
         "by startTime":
           description: Fetches up to 1000 returns that occured after January 1st 2022.
           value:
-            startTime: 2022-01-01T00:00:00
+            startTime: 2022-01-01T00:00:00+00:00
         "by orderId and endTime":
-          description: Fetches all returns for order 'DR-010045656-01' that occurred before Februari 28th 2022.
+          description: Fetches up to a 1000 returns for order 'DR-010045656-01' that occurred before Februari 28th 2022.
           value:
             externalOrderNumber: DR-010045656-01 
-            endTime: 2022-02-28T23:59:59
+            endTime: 2022-02-28T23:59:59+00:00
