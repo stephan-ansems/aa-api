@@ -1,5 +1,3 @@
-tags:
-  - returns
 summary: /v2/returns/rma
 description: |
   Registers a return merchandise authorisation (RMA) request for one or more items that are going to be returned by the end-user.
