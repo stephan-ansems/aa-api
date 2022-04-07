@@ -1,0 +1,111 @@
+tags:
+  - rma
+  - returns
+summary: Fetches a return item
+description: Creates a new return merchandise authorisation (RMA)
+operationId: addRma
+responses:
+  200: 
+    description: Success
+    content:
+      application/json:
+        schema: 
+          type: object
+          required:
+            - message
+            - messageCode
+            - result
+          properties:
+            message:
+              type: string
+              description: Static success message
+            messageCode:
+              type: string
+              description: Always 'OK' for success messages
+            result:
+              type: string
+              description: contains the identifier of the RMA that was created.
+        examples:
+          "200: OK":
+            value:
+              message: Rma Created
+              messageCode: OK
+              result: 182312111
+  400:
+    description: Whenever an invalid request was made this message will contain a response indicating the issue.
+    content:
+      application/json:
+        schema: 
+          type: object
+          required:
+            - message
+            - messageCode
+          properties:
+            message:
+              type: string
+              description: Textual representation of the error
+            messageCode:
+              type: string
+              example: NOK
+            result:
+              type: object
+        examples:
+          "400: No data":
+            value:
+              message: No data received, please check your data.
+              messageCode: NOK
+          "400: Shipment not found":
+            value:
+              message: Shipment ${shipmentId} not found.
+              messageCode: NOK
+          "400: Duplicate RMA for shipments":
+            value:
+              message: RMA for shipment ${shipmentId} already created.
+              messageCode: NOK
+          "400: Data incorrect":
+            value:
+              message: Data received is not correct.
+              messageCode: NOK
+          
+            
+
+requestBody:
+  content:
+    application/json:
+      schema:
+        type: object
+        properties:
+          shippingId:
+            description: |
+              Reference to the shipment that contained the products when they were shipped to the customers address.
+            type: string
+            example: 1899222311
+          remark:
+            description: A free text remark to add to the return merchandise authorisation.
+            type: string
+            example: Thanks for shipping out so fast! Unfortunately the items do not fit me.
+          rmaItems:
+            description: |
+              An array or items to be returned, each item may originate from a different shipment.
+            type: array
+            minItems: 1
+            maxItems: 99
+            items:
+              type: object
+              required:
+                - shippingItemId
+                - quantity
+              properties:
+                returnReasonId:
+                  description: The id of the reason for returning this item. 
+                  type: integer
+                shippingItemId:
+                  description: |
+                    Reference to the line-item of the shipment the particular product was returned on.
+                    This is used to look up the SKU among other things.
+                  type: string
+                  example: 4358838211
+                quantity:
+                  description: The number of the particular item to return, this must be 1 or higher
+                  type: integer
+                  minimum: 1
