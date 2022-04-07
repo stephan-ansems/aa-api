@@ -1,7 +1,9 @@
 tags:
   - returns
-summary: Fetches a return item data
-description: Creates a new return merchandise authorisation (RMA)
+summary: Fetch information of returned items
+description: | 
+  Fetches records or returned items after these have been processed in one of the warehouses of Active Ants. 
+  These items may or may not have been registered up-front by the end-user using the RMA process.
 operationId: GetReturns
 responses:
   200: 
