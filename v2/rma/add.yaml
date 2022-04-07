@@ -26,12 +26,7 @@ responses:
               type: string
               example: 182312111
   400:
-    description: |
-      Could be one of the following errors: 
-      - "No data received, please check your data."
-      - "Shipment {ShipmentId} not found"
-      - "RMA for shipment {ShipmentId} already created"
-      - "Data received is not correct"
+    description: Whenever an invalid request was made this message will contain a response indicating the issue.
     content:
       application/json:
         schema: 
@@ -43,12 +38,30 @@ responses:
             message:
               type: string
               description: Textual representation of the error
-              example: No data received, please check your data.
             messageCode:
               type: string
               example: NOK
             result:
               type: object
+        examples:
+          "400: No data":
+            values:
+              message: No data received, please check your data.
+              messageCode: NOK
+          "400: Shipment not found":
+            values:
+              message: Shipment ${shipmentId} not found.
+              messageCode: NOK
+          "400: Duplicate RMA for shipments":
+            values:
+              message: RMA for shipment ${shipmentId} already created.
+              messageCode: NOK
+          "400: Data incorrect":
+            values:
+              message: Data received is not correct.
+              messageCode: NOK
+          
+            
 
 requestBody:
   content:
