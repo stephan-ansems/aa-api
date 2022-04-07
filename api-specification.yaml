@@ -50,6 +50,9 @@ paths:
                   maxItems: 99
                   items:
                     type: object
+                    required:
+                      - shippingItemId
+                      - quantity
                     properties:
                       shippingItemId:
                         description: Reference to the line-item of the shipment the particular product was returned on. This is used to look up the SKU among other things.
@@ -70,7 +73,6 @@ components:
         shippingId:
           description: Reference to the shipment that contained the products when they were shipped to the customers address
           type: string
-          required: false
           example: 1899222311
         remark:
           description: A free text remark to add to the return merchandise authorisation.
