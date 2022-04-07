@@ -67,7 +67,8 @@ responses:
                     type: string 
                   afterCare:
                     description: A textual description of the aftercare for this return.
-                    type: boolean
+                    type: string
+                    
                   redeliver:
                     description: |
                       Indicates whether or not the item should/is redelivered to the end-customer
@@ -95,10 +96,31 @@ responses:
               message: Found {count} return items that match your criteria.
               messageCode: OK
               result: 
-                - id: 1
+                - id: 1343993
+                  returnDate: 2022-01-03
+                  quantity: 1
+                  sku: BAGGY-TROUSERS-XL
+                  externalOrderNumber: DR-010045656-01
+                  returnReasonId: 46
+                  returnReason: Te klein
+                  type: ?
+                  afterCare: GEEN
+                  redeliver: false
+                  porti: UPS Access Point - gratis voor klant - United Kingdom  (tot 10kg)
+                  orderType:
+                - id: 1499932
+                  returnDate: 2022-01-23
+                  quantity: 1
+                  sku: BAGGY-TROUSERS-XXL
+                  externalOrderNumber: DR-010045656-01
+                  returnReasonId: 27
+                  returnReason: Product moet gestoomd worden
+                  type: ?
+                  afterCare: GEEN
+                  porti: UPS Access Point - gratis voor klant - United Kingdom  (tot 10kg)
+                  orderType:
                   comment: Big stain on the front
-                - id: 2
-                  returnDate: 2022-03-03
+                  
            
               
   400:
