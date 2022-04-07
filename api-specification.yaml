@@ -27,17 +27,20 @@ paths:
               schema: 
                 type: object
                 required:
-                  properties:
-                    message:
-                      type: string
-                      description: Static success message
-                      example: RmaCreated.
-                    code:
-                      type: string
-                      example: OK
-                    result:
-                      type: string
-                      example: 182312111
+                  - message
+                  - messageCode
+                  - result
+                properties:
+                  message:
+                    type: string
+                    description: Static success message
+                    example: RmaCreated.
+                  messageCode:
+                    type: string
+                    example: OK
+                  result:
+                    type: string
+                    example: 182312111
         400:
           description: |
             Could be one of the following errors: 
