@@ -12,6 +12,20 @@ info:
   version: 2.0.1
   title: Active Ants Shop API
 paths:
+  '/v2/returns/rma:
+    post:
+      tags:
+        - returns
+      $ref: v2/returns/rma/POST.yaml
+    put:
+      tags:
+        - returns
+      $ref: v2/returns/rma/POST.yaml
+    get:
+      tags:
+        - returns
+      $ref: v2/returns/rma/POST.yaml
+      
   '/v2/rma/add':
     post:
       $ref: v2/rma/POST_add.yaml
