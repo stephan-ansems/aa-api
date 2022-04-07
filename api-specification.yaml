@@ -65,6 +65,38 @@ paths:
                       reasonId:
                         description: The id of the reason for returning this item. 
                         type: integer
+
+  '/v2/returnitem/get':
+    post:
+      tags:
+        - rma
+      summary: Creates a new RMA
+      description: |
+        The request can be done by posting an external ordernumber or a time path. Active Ants’ result will
+        have a maximum of 1000 returnitems per
+      operationId: getRma
+      responses:
+        200: 
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: string
+                example: 1434980924
+        401:
+          description: Invalid RMA      
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                externlOrderNumber:
+                  description: Reference to the shipment that contained the products when they were shipped to the customers address
+                  type: string
+                  example: 1899222311
+     
+      
 components:
   schemas:
     Rma:
