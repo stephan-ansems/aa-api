@@ -94,7 +94,12 @@ responses:
             value:
               message: Found {count} return items that match your criteria.
               messageCode: OK
-              result:
+              result: 
+                0:
+                  id: 1
+                1:
+                  id: 2
+           
               
   400:
     description: Whenever an invalid request was made this message will contain a response indicating the issue.
