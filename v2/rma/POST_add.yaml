@@ -1,7 +1,7 @@
 tags:
-  - rma
-summary: Creates a new RMA
-description: Creates a new return merchandise authorisation (RMA)
+  - returns
+summary: Register returns
+description: Submit a return merchandise authorisation (RMA) request for one or more items that are going to be returned.
 operationId: addRma
 responses:
   200: 
